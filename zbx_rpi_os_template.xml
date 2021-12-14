@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2021-12-14T21:25:52Z</date>
+    <groups>
+        <group>
+            <name>Raspberry Pi</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Raspberry Pi Operating System</template>
+            <name>Template Raspberry Pi Operating System</name>
+            <description>Collects OS items</description>
+            <groups>
+                <group>
+                    <name>Raspberry Pi</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Inventory</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>OS Name</name>
+                    <type>DEPENDENT</type>
+                    <key>rpi.os.name</key>
+                    <delay>0</delay>
+                    <history>365d</history>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <inventory_link>OS</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Inventory</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>REGEX</type>
+                            <params>PRETTY_NAME=&quot;(.*)&quot;
+\1</params>
+                        </step>
+                    </preprocessing>
+                    <master_item>
+                        <key>rpi.os.release</key>
+                    </master_item>
+                </item>
+                <item>
+                    <name>OS Release Info</name>
+                    <key>rpi.os.release</key>
+                    <history>365d</history>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>Inventory</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1h</params>
+                        </step>
+                    </preprocessing>
+                </item>
+            </items>
+        </template>
+    </templates>
+</zabbix_export>

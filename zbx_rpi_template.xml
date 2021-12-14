@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2021-12-14T21:19:54Z</date>
+    <groups>
+        <group>
+            <name>Raspberry Pi</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Raspberry Pi</template>
+            <name>Template Raspberry Pi</name>
+            <description>Template Container for Raspberry Pi</description>
+            <templates>
+                <template>
+                    <name>Template Raspberry Pi Hardware</name>
+                </template>
+                <template>
+                    <name>Template Raspberry Pi Operating System</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>Raspberry Pi</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Environment</name>
+                </application>
+                <application>
+                    <name>Raspberry Pi</name>
+                </application>
+            </applications>
+        </template>
+    </templates>
+</zabbix_export>
